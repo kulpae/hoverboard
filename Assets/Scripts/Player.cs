@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 public class Player : MonoBehaviour {
 
@@ -54,6 +55,8 @@ public class Player : MonoBehaviour {
 
 	public void Die () {
 		osc.Vibrate();
+		PlayerPrefs.SetInt ("score", score);
+		AutoFade.LoadLevel ("_Scenes/Highscore", 0.5f, 0.5f, Color.black);
 		//mainMenu.EndGame(distanceTraveled);
 		//gameObject.SetActive(false);
 	}
@@ -73,6 +76,9 @@ public class Player : MonoBehaviour {
 			Die();
 		}
 
+		if (Input.GetKey (KeyCode.Escape)) {
+			Die ();
+		}
 		velocity += acceleration * Time.deltaTime;
 		float delta = velocity * Time.deltaTime;
 		distanceTraveled += delta;

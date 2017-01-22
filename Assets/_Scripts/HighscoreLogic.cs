@@ -46,7 +46,7 @@ public class HighscoreLogic : MonoBehaviour {
 				string name = playerNameInput.text;
 				name = name.Trim ();
 				if (name.Length >= 2) {
-					store.AddScore (name, 100);
+					store.AddScore (name, PlayerPrefs.GetInt("score"));
 				}
 			}
 			if (triggConfirm || triggCancel) {
@@ -62,9 +62,15 @@ public class HighscoreLogic : MonoBehaviour {
 	}
 
 	public void NewHighscore(){
-		activeInput = true;
-		newHighscorePanel.transform.SetAsLastSibling ();
-		playerNameInput.Select ();
-		playerNameInput.ActivateInputField ();
+		if (PlayerPrefs.HasKey ("score")) {
+			activeInput = true;
+			newHighscorePanel.transform.SetAsLastSibling ();
+			playerNameInput.Select ();
+			playerNameInput.ActivateInputField ();
+		} else {
+			newHighscorePanel.gameObject.SetActive (false);
+			activeInput = false;
+		}
+
 	}
 }

@@ -13,6 +13,8 @@ public class RandomPlacer : PipeItemGenerator {
 				(Random.Range(0, pipe.pipeSegmentCount) + 0.5f) *
 				360f / pipe.pipeSegmentCount;
 			item.Position(pipe, i * angleStep, pipeRotation);
+			if (pipe.CompareTag ("PowerUp"))
+				break;
 		}
 	}
 }
