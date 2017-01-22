@@ -76,7 +76,7 @@ public class HighscoreStore : MonoBehaviour {
 		}
 	}
 
-	void AddScore(string name, int value) {
+	public void AddScore(string name, int value) {
 		Score sc = new Score ();
 		sc.value = value;
 		sc.name = name;
