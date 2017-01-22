@@ -12,7 +12,10 @@ TrueTypeFontImporter:
   fontName: space punk
   fontNames:
   - space punk
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f22219c181306c34ca705f678ec3a797, type: 3}
+  - {fileID: 12800000, guid: 5104ba382649d674caa042ddea0f8b32, type: 3}
+  - {fileID: 12800000, guid: b69a298bb20d04246a7599a1fa781acb, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
